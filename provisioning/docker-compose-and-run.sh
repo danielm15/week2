@@ -6,4 +6,4 @@
 export GIT_COMMIT=$1
 echo $GIT_COMMIT
 docker-compose down
-docker-compose up --build
+docker-compose up -d --build
