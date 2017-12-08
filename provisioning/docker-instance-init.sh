@@ -27,4 +27,6 @@ sudo chkconfig docker on
 
 sudo yum install git
 
+echo Finished installing packages.
+
 touch ec2-init-done.markerfile
