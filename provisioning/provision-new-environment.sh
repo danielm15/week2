@@ -3,7 +3,7 @@
 
 if [ -z "$GIT_COMMIT" ];
 then
-    export GIT_COMMIT='da2f19126787dd312a33f3178f397f5e2b6f55e1'
+    export GIT_COMMIT='d80bb4f3507f36d0fac5de7766a4a9339db9002f'
 fi
 
 

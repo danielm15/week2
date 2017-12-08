@@ -1,7 +1,7 @@
 function create-key-pair(){
-    if [ ! -e ${INSTANCE_DIR}/${SECURITY_GROUP_NAME}.pem ]; then
-        aws ec2 create-key-pair --key-name ${SECURITY_GROUP_NAME} --query 'KeyMaterial' --output text > ${INSTANCE_DIR}/${SECURITY_GROUP_NAME}.pem
-        chmod 400 ${INSTANCE_DIR}/${SECURITY_GROUP_NAME}.pem
+    if [ ! -e ./${SECURITY_GROUP_NAME}.pem ]; then
+        aws ec2 create-key-pair --key-name ${SECURITY_GROUP_NAME} --query 'KeyMaterial' --output text > ./${SECURITY_GROUP_NAME}.pem
+        chmod 400 ./${SECURITY_GROUP_NAME}.pem
     fi
 
 }
@@ -51,8 +51,8 @@ function create-ec2-instance(){
         echo ${INSTANCE_ID} > ./ec2_instance/instance-id.txt
 
         echo Waiting for instance to be running
-        echo aws ec2 wait --region eu-west-1 instance-running --instance-ids ${INSTANCE_ID}
-        aws ec2 wait --region eu-west-1 instance-running --instance-ids ${INSTANCE_ID}
+        echo aws ec2 wait --region eu-west-2 instance-running --instance-ids ${INSTANCE_ID}
+        aws ec2 wait --region eu-west-2 instance-running --instance-ids ${INSTANCE_ID}
         export INSTANCE_PUBLIC_NAME=$(aws ec2 describe-instances --instance-ids ${INSTANCE_ID} --query "Reservations[*].Instances[*].PublicDnsName" --output=text)
         echo EC2 instance ${INSTANCE_ID} ready and available on ${INSTANCE_PUBLIC_NAME}
 
