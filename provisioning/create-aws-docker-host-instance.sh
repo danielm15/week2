@@ -50,7 +50,7 @@ if [ ! -e ./ec2_instance/instance-public-name.txt ]; then
     echo ${INSTANCE_PUBLIC_NAME} > ./ec2_instance/instance-public-name.txt
 fi
 
-
+INSTANCE_ID=$(cat ./ec2_instance/instance-id.txt)
 MY_CIDR=${MY_PUBLIC_IP}/32
 
 echo Using CIDR ${MY_CIDR} for access restrictions.
@@ -59,5 +59,7 @@ set +e
 aws ec2 authorize-security-group-ingress --group-name ${SECURITY_GROUP_NAME} --protocol tcp --port 22 --cidr ${MY_CIDR}
 aws ec2 authorize-security-group-ingress --group-name ${SECURITY_GROUP_NAME} --protocol tcp --port 80 --cidr ${MY_CIDR}
 
-aws ec2 associate-iam-instance-profile --instance-id ${INSTANCE_ID} --iam-instance-profile Name=CICDServer-Instance-Profile
+if [ ! -e ./ec2_instance/instance-id.txt ]; then
+    aws ec2 associate-iam-instance-profile --instance-id $(cat ./ec2_instance/instance-id.txt) --iam-instance-profile Name=CICDServer-Instance-Profile
+fi
 
