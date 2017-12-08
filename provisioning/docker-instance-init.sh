@@ -25,7 +25,7 @@ sudo gpasswd -a jenkins docker
 sudo service docker start
 sudo chkconfig docker on
 
-sudo yum install git
+sudo yum install git -y
 
 echo Finished installing packages.
 

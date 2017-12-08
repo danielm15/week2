@@ -26,6 +26,7 @@ done
 echo Status ${status}
 
 scp -o StrictHostKeyChecking=no -i "./${SECURITY_GROUP_NAME}.pem" ./docker-instance-init.sh ec2-user@${INSTANCE_PUBLIC_NAME}:~/docker-instance-init.sh
+scp -o StrictHostKeyChecking=no -i "./${SECURITY_GROUP_NAME}.pem" ../Jenkinsfile ec2-user@${INSTANCE_PUBLIC_NAME}:~/Jenkinsfile
 scp -o StrictHostKeyChecking=no -i "./${SECURITY_GROUP_NAME}.pem" ./ec2-instance-check.sh ec2-user@${INSTANCE_PUBLIC_NAME}:~/ec2-instance-check.sh
 scp -o StrictHostKeyChecking=no -i "./${SECURITY_GROUP_NAME}.pem" ./docker-compose.yaml ec2-user@${INSTANCE_PUBLIC_NAME}:~/docker-compose.yaml
 scp -o StrictHostKeyChecking=no -i "./${SECURITY_GROUP_NAME}.pem" ./docker-compose-and-run.sh ec2-user@${INSTANCE_PUBLIC_NAME}:~/docker-compose-and-run.sh
