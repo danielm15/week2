@@ -1,8 +1,8 @@
 FROM node
+RUN npm install --silent
 WORKDIR /server
 RUN apt-get update
 RUN apt-get install telnet
-RUN apt-get install sudo
 COPY package.json .
 COPY . .
 RUN npm install --silent
