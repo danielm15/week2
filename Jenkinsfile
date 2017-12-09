@@ -7,9 +7,8 @@ node {
             sh './docker-instance-init.sh'
         }
 */
-        sh 'curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -'
-        sh 'echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list'
-        sh 'apt remove cmdtest -y && apt-get update -y && apt-get install yarn'
+        sh 'apt remove cmdtest -y'
+        sh 'npm install -g yarn'
         sh 'yum -y update'
         sh 'yum -y remove java-1.7.0-openjdk'
         sh 'yum -y install java-1.8.0'
