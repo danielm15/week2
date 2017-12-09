@@ -7,7 +7,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-                sh 'apt-get -y install python-pip'
+                sh 'curl -L https://github.com/docker/compose/releases/download/1.17.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose'
                 sh 'npm install yum -y'
                 sh 'yum -y install docker'
                 sh 'pip install docker-compose'
