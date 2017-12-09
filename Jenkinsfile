@@ -2,11 +2,12 @@ pipeline {
     agent {
         dockerfile true
     }
-    
+
     stages {
         stage('Build') {
             steps {
                 echo 'Building..'
+                sh 'sudo usermod -a -G docker ec2-user'
                 sh 'npm run startpostgres && sleep 10 && npm run migratedb'
                 sh 'npm run build'
                 sh './dockerbuild.sh'
