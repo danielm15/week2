@@ -3,11 +3,12 @@ node {
 
     stage('Build') {
         echo 'Building..'
-        sh "yarn install"
 
         dir('provisioning') {
             sh "./docker-instance-init.sh"
         }
+
+        sh "yarn install"
 
         dir('client') {
             sh "npm install"

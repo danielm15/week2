@@ -1,6 +1,11 @@
 #!/bin/bash
 
 #exec > >(tee /var/log/user-data.log|logger -t user-data -s 2>/dev/console) 2>&1
+curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+
+sudo apt remove cmdtest -y
+sudo apt-get update && sudo apt-get install yarn
 
 sudo yum -y update
 sudo wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat-stable/jenkins.repo
