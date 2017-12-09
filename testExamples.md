@@ -1,3 +1,35 @@
+Create game:
+	
+	GIVEN:
+
+	WHEN:
+		CreateGame is emitted
+	THEN:
+		Emit GameCreated event
+Join game:
+
+	GIVEN:
+		GameCreated event
+	WHEN:
+		JoinGame event is emitted
+	THEN:
+		Emit GameJoined event
+Place move:
+
+	GIVEN:
+		Cell[0][0] is empty
+	WHEN:
+		Cell[0][0] is marked with 'X'
+	THEN:
+		Emit PlaceMove event
+
+	GIVEN:
+		It is side 'X' turn to play
+	WHEN:
+		PlaceMove from side 'O'
+	THEN:
+		Emit NotYourMove event
+
 Illegal moves:
 
 	GIVEN:
