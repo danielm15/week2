@@ -2,6 +2,7 @@ node {
     checkout scm
     agent {
         docker {
+            image 'danielm15/week2:${BUILD_TAG}'
             args '-u root:sudo -v $HOME/workspace/TicTacToe'
         }
     }
@@ -12,8 +13,8 @@ node {
             sh './docker-instance-init.sh'
         }
 */
-        //sh 'curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -'
-        //sh 'echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list'
+        sh 'curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -'
+        sh 'echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list'
         sh 'apt remove cmdtest -y && apt-get update -y && apt-get install yarn'
         sh 'yum -y update'
         sh 'yum -y remove java-1.7.0-openjdk'
