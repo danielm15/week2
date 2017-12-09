@@ -31,6 +31,7 @@ Winning scenarios:
 		Emit GameWon event for 'X'
 
 Draw scenarios:
+
 	GIVEN:
 		All cells are marked except for [0][0]
 	WHEN:
