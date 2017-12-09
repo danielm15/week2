@@ -43,6 +43,7 @@ cp ./package.json ./build/
 cp ./Dockerfile ./build/
 
 cd build
+echo ´sudo usermod -a -G docker ec2-user´
 
 echo Building docker image
 

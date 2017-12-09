@@ -1,6 +1,4 @@
 pipeline {
-    sh 'sudo usermod -a -G docker ec2-user'
-    
     agent {
         dockerfile true
     }
