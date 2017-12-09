@@ -1,11 +1,5 @@
 node {
     checkout scm
-    agent {
-        docker {
-            image 'danielm15/week2:${BUILD_TAG}'
-            args '-u root:sudo -v $HOME/workspace/TicTacToe'
-        }
-    }
     stage('Build') {
         echo 'Building..'
 /*
