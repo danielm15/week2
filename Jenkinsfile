@@ -7,9 +7,6 @@ node {
             sh './docker-instance-init.sh'
         }
 */
-        dir('client') {
-            sh 'npm install'
-        }
         sh 'npm run startpostgres && sleep 10 && npm run migratedb'
         sh 'npm run build'
         sh './dockerbuild.sh'
