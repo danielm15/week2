@@ -7,8 +7,11 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-                sh 'sudo npm install -g docker'
-                sh 'sudo curl -L https://github.com/docker/compose/releases/download/1.17.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose'
+                sh 'apt-get update'
+                sh 'apt-get -y install python-pip'
+                sh 'npm install yum -y'
+                sh 'yum -y install docker'
+                sh 'pip install docker-compose'
                 sh 'npm run startpostgres && sleep 10 && npm run migratedb'
                 sh 'npm run build'
                 sh './dockerbuild.sh'
