@@ -8,3 +8,4 @@ COPY . .
 EXPOSE 8080
 ENV NODE_PATH /server/
 CMD ["./runserver.sh"]
+
