@@ -7,7 +7,6 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-                sh 'apt-get update'
                 sh 'apt-get -y install python-pip'
                 sh 'npm install yum -y'
                 sh 'yum -y install docker'
