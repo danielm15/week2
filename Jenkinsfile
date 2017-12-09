@@ -9,7 +9,7 @@ pipeline {
                 echo 'Building..'
                 //sh 'curl -L https://github.com/docker/compose/releases/download/1.17.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose'
                 //sh 'yum -y install docker'
-                sh 'npm run startpostgres && sleep 10 && npm run migratedb'
+                //sh 'npm run startpostgres && sleep 10 && npm run migratedb'
                 sh 'npm run build'
                 sh 'service docker start'
                 sh './dockerbuild.sh'
