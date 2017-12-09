@@ -1,5 +1,7 @@
 FROM node
-RUN npm install --silent
+COPY package.json .
+RUN npm install
+
 WORKDIR /server
 RUN apt-get update
 RUN apt-get install telnet
@@ -20,3 +22,7 @@ RUN chmod +x /usr/bin/docker-compose
 EXPOSE 8080
 ENV NODE_PATH /server/
 CMD ["./runserver.sh"]
+
+WORKDIR ../client
+COPY package.json .
+RUN npm install
