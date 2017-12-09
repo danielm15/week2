@@ -16,7 +16,7 @@ module.exports = function(injected){
                 }
 
                 let cmdHandlers = {
-                    "CreateGame": function (cmd) {
+                    "CreateGame": function (    cmd) {
                         applyEvents([{
                             gameId: cmd.gameId,
                             type: "GameCreated",
@@ -58,7 +58,13 @@ module.exports = function(injected){
                         }]);
                     },
                     "PlaceMove": function(cmd){
-
+                        applyEvents([{
+                            gameId: cmd.gameId,
+                            type: "MovePlaced",
+                            user: cmd.user,
+                            name: cmd.name,
+                            timeStamp: cmd.timeStamp
+                        }])
 
                         // Check here for conditions which prevent command from altering state
 
