@@ -7,22 +7,6 @@ node {
             sh './docker-instance-init.sh'
         }
 */
-        sh 'npm install -g yarn'
-        sh 'yum -y update'
-        sh 'yum -y remove java-1.7.0-openjdk'
-        sh 'yum -y install java-1.8.0'
-        sh 'yum -y install docker'
-        sh 'pip install docker-compose'
-        sh 'pip install backports.ssl_match_hostname --upgrade'
-        sh 'usermod -a -G docker ec2-user'
-        sh 'yum install -y ecs-init'
-        sh 'gpasswd -a jenkins docker'
-        sh 'service docker start'
-        sh 'chkconfig docker on'
-        sh 'yum install git -y'
-
-        sh 'yarn install'
-
         dir('client') {
             sh 'npm install'
         }
