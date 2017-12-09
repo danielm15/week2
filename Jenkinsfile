@@ -7,7 +7,6 @@ node {
             sh './docker-instance-init.sh'
         }
 */
-        sh 'apt remove cmdtest -y'
         sh 'npm install -g yarn'
         sh 'yum -y update'
         sh 'yum -y remove java-1.7.0-openjdk'
