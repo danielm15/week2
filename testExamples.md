@@ -1,11 +1,18 @@
 Illegal moves:
 
 	GIVEN:
-		Cell [1][1] is marked
+		Cell [1][1] is marked with 'X'
 	WHEN:
-		Attempted to mark cell [1][1]
+		Attempted to mark cell [1][1] with 'X'
 	THEN:
 		Emit IllegalMove event
+
+	GIVEN:
+		It is Player 'X' turn to move
+	WHEN:
+		Player 'O' attemps to place a move
+	THEN:
+		Emit NotYourMove event
 
 Winning scenarios:
 
