@@ -11,6 +11,7 @@ pipeline {
                 //sh 'yum -y install docker'
                 sh 'npm run startpostgres && sleep 10 && npm run migratedb'
                 sh 'npm run build'
+                sh 'service docker start'
                 sh './dockerbuild.sh'
             }
         }
