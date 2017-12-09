@@ -1,12 +1,13 @@
 node {
     checkout scm
+    agent {
+        docker {
+            image 'node:6.9.1'
+        }
+    }
     stage('Build') {
         echo 'Building..'
-/*
-        dir('provisioning') {
-            sh './docker-instance-init.sh'
-        }
-*/
+
         sh 'npm run startpostgres && sleep 10 && npm run migratedb'
         sh 'npm run build'
         sh './dockerbuild.sh'
