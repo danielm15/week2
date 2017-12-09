@@ -8,11 +8,14 @@ Script to provision new instance or update a previous one with docker and jenkin
       already. It also creates a security group and a key-pair if they don't exist.
       
     - The other script the provision script calls upon is update-env.sh that installs all dependencies including jenkins with docker-instance-init.sh and installs and runs docker-compose
+
 To use the Github plug-in with Jenkins:
-  cd ~/provisioning
-  ssh -i "./ec2_instance/hgop-${USERNAME}.pem" ec2-user@${INSTANCE_PUBLIC_NAME}
-  sudo su -s /bin/bash jenkins
-  cd /var/lib/jenkins/
-  ssh-keygen
-  cat .ssh/id_rsa.pub
+
+    - cd ~/provisioning
+    - ssh -i "./ec2_instance/hgop-${USERNAME}.pem" ec2-user@${INSTANCE_PUBLIC_NAME}
+    - sudo su -s /bin/bash jenkins
+    - cd /var/lib/jenkins/
+    - ssh-keygen
+    - cat .ssh/id_rsa.pub
+    
 Then copy the public key that was concatenated onto the screen, and add it to your Github ssh keys.
