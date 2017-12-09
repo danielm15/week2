@@ -3,8 +3,8 @@ WORKDIR /server
 RUN apt-get update
 RUN apt-get install telnet
 COPY package.json .
-RUN npm install --silent
 COPY . .
+RUN npm install --silent
 
 # Installing Docker
 RUN wget https://get.docker.com/builds/Linux/x86_64/docker-1.11.0.tgz -O docker.tgz  
